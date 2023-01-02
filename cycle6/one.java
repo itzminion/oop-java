@@ -1,18 +1,17 @@
 import javax.swing.* ;
-
 import java.awt.*;
 import java.awt.event.* ;
 
 
 class Calculator extends JFrame implements ActionListener{
-    JLabel l1 , l2 , l3,l4 ; 
+    JLabel l1 , l2 , l3, l4 ; 
     JTextField t1 , t2 , t3 ; 
-    JButton add , sub , mul , div ; 
+    JButton add , sub , mul , div ,mod ; 
 
     Calculator(){
         setSize(500,500);
         setTitle("Calculator");
-        setLayout(new GridLayout(5,2,10,10));    
+        setLayout(new GridLayout(6,2,10,10));    
         
         l1 = new JLabel("Num 1") ; 
         l1.setHorizontalAlignment(JLabel.CENTER); 
@@ -20,6 +19,7 @@ class Calculator extends JFrame implements ActionListener{
         l2.setHorizontalAlignment(JLabel.CENTER);
         l3 = new JLabel("Result") ;
         l3.setHorizontalAlignment(JLabel.CENTER);
+        l4 = new JLabel() ;
 
         t1 = new JTextField(10) ; 
         t1.setHorizontalAlignment(JTextField.CENTER);
@@ -32,6 +32,7 @@ class Calculator extends JFrame implements ActionListener{
         sub = new JButton("-") ;
         mul = new JButton("*") ; 
         div = new JButton("/") ; 
+        mod = new JButton("%") ; 
         
         add(l1) ;  
         add(l2) ; 
@@ -41,6 +42,8 @@ class Calculator extends JFrame implements ActionListener{
         add(sub) ; 
         add(mul) ; 
         add(div) ; 
+        add(mod) ; 
+        add(l4) ; 
         add(l3) ; 
         add(t3) ; 
 
@@ -48,6 +51,7 @@ class Calculator extends JFrame implements ActionListener{
         sub.addActionListener(this) ; 
         mul.addActionListener(this) ; 
         div.addActionListener(this) ; 
+        mod.addActionListener(this) ;
         
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +71,14 @@ class Calculator extends JFrame implements ActionListener{
         }else if (e.getSource() == mul){
             result = num1 * num2 ;
             t3.setText(""+result);
-        }else
+        }else if ( e.getSource() == mod){
+            try{
+                result = num1 % num2 ; 
+                t3.setText("" + result ) ; 
+            }catch(Exception ee ){
+                t3.setText("Can't divide by 0") ;
+            }
+        }else   
             try{
                 result = num1 / num2 ; 
                 t3.setText(""+result);
