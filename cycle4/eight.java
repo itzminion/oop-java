@@ -6,6 +6,7 @@ class SalesZeroException extends RuntimeException{
 class Salesman{
 	String name , code ; 
  	double amount , commission ; 
+	int valid = 1 ; 
 	Salesman(String name , String code , double amount ){
 		this.name = name ; 
 		this.code = code ; 
@@ -16,8 +17,8 @@ class Salesman{
 		if( amount < 0) 
 			throw new SalesZeroException("Sales Amount Zero");
 		}catch(SalesZeroException e){
-			System.out.println("Sales amount is less than zero, amount set to zero  ") ; 
-			this.amount = 0 ; 	
+			System.out.println(e) ; 
+			this.valid = 0 ; 	
 		}
 		if(amount < 2000)
 			commission = amount*8/100 ; 
@@ -27,10 +28,13 @@ class Salesman{
 			commission =amount * 12/100 ; 
 	}
 	void display(){
-		System.out.println("Name\t: "+name ) ; 
-		System.out.println("Code\t: "+code ) ; 
-		System.out.println("Amount\t: "+amount ) ; 
-		System.out.println("Commission\t: " + commission ) ; 
+		if(valid ==1){
+			System.out.println("Name\t: "+name ) ; 
+			System.out.println("Code\t: "+code ) ; 
+			System.out.println("Amount\t: "+amount ) ; 
+			System.out.println("Commission\t: " + commission ) ; 
+		}
+		
 	} 
 
 }

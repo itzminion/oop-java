@@ -22,16 +22,16 @@ interface P12 extends P1,P2{
 
 class Q implements P12{
 	public void a(){
-		System.out.println("A = " + A) ; 
+		System.out.println("Value of A = " + A) ; 
 	}
 	public void b(){
-		System.out.println("B = " + B) ; 
+		System.out.println("Value of B = " + B) ; 
 	}
 	public void c(){
-		System.out.println("C = " + C) ; 
+		System.out.println("Value of C = " + C) ; 
 	}
 	public void d(){
-		System.out.println("D = " + D) ; 
+		System.out.println("Value of D = " + D) ; 
 	}
 }
 

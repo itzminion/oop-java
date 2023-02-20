@@ -2,21 +2,21 @@
 class MyThread1 extends Thread{
     @Override
     public void run() {
-        System.out.println("Thread 1 \n Priotity " +getPriority()) ;
+        System.out.println("Thread 1 \n Priority " +getPriority()) ;
     }
 }
 
 class MyThread2 extends Thread{
     @Override
     public void run() {
-        System.out.println("Thread 2 \n Priotity " +getPriority()) ;
+        System.out.println("Thread 2 \n Priority " +getPriority()) ;
     }
 }
 
 class MyThread3 extends Thread{
     @Override
     public void run() {
-        System.out.println("Thread 3 \n Priotity " +getPriority()) ;
+        System.out.println("Thread 3 \n Priority " +getPriority()) ;
     }
 }
 

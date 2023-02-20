@@ -31,20 +31,20 @@ class Shape{
 	}
 	
 	void area(double radius){		 //circle
-		System.out.println("Area = "+(3.14*radius*radius)) ; 
+		System.out.println("Area of circle = "+(3.14*radius*radius)) ; 
 	}
 	
 	void area(double length,double breadth){ //Rectangle
-		System.out.println("Area = "+(length*breadth)) ; 
+		System.out.println("Area of Rectangle = "+(length*breadth)) ; 
 	}
 	
 	void area(int base , double height){	//Traingle
-		System.out.println("Area = "+(.5 * base * height )) ; 
+		System.out.println("Area of Traingle = "+(.5 * base * height )) ; 
 	}
 	
 	void area(double length,double breadth, double height){	//Trapizoid
 		double ar = (0.5 * (length+breadth) * height) ; 
-		System.out.println("Area = "+ar) ; 
+		System.out.println("Area of Trapizoid = "+ar) ; 
 	}
 
 
@@ -54,7 +54,7 @@ class Main{
 	public static void main(String args[]){
 		Shape s1 = new Shape(5) ; 
 		Shape s2 = new Shape(20,5);
-		Shape s = new Shape(5,10.5) ; 
+		Shape s3 = new Shape(5,10.5) ; 
 		Shape s4 = new Shape(1,3,5);
 		
 	}

@@ -14,7 +14,7 @@ class Student{
 		System.out.println("Name\t: " + name ) ; 
 		System.out.println("Age\t: " + age ) ; 
 		System.out.println("RollNo\t: " + rollNo ) ; 
-		System.out.println("Course\t: " + course ) ; 
+		System.out.println("Course\t: " + course + "\n") ; 
 	}	
 }
 class NotValidAgeException extends RuntimeException{
@@ -27,24 +27,32 @@ class Main{
 		String name , course ; 
 		int rollNo , age ; 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Enter the Following details in order: Name age rollNo course") ;
-		StringTokenizer st = new StringTokenizer(br.readLine()," "); 
-		while(st.hasMoreTokens()){
-			name = st.nextToken() ; 
-			age = Integer.parseInt(st.nextToken()) ;  
+		do{
 			try{
-				if ( age >21 || age < 15)
-					throw new NotValidAgeException("Age should be between 15 and 21") ; 
-			}catch(NotValidAgeException e){
-				System.out.println("Not a valid age"); 
-				break ; 
+				System.out.println("Enter the Following details in order: Name age rollNo course\nCtrl + C to exit  ") ;
+				StringTokenizer st = new StringTokenizer(br.readLine()," "); 
+				while(st.hasMoreTokens()){
+					name = st.nextToken() ; 
+					age = Integer.parseInt(st.nextToken()) ;  
+					try{
+						if ( age >21 || age < 15)
+							throw new NotValidAgeException("Age should be between 15 and 21") ; 
+					}catch(NotValidAgeException e){
+						System.out.println("Not a valid age! \n"); 
+						break ; 
+					}
+					rollNo = Integer.parseInt(st.nextToken()) ; 
+					course = st.nextToken() ;
+					Student s = new Student(name,age,rollNo, course) ; 
+					s.display() ;
+					
+				}
+	
+			}catch(Exception e){
+				System.out.println("Some error has occured !\nTry again with correct format\n\n");
 			}
-			rollNo = Integer.parseInt(st.nextToken()) ; 
-			course = st.nextToken() ;
-			Student s = new Student(name,age,rollNo, course) ; 
-			s.display() ;
-			
-		}
+		}while(true) ; 
+		
 	}
 }
 
